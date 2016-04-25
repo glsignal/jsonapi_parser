@@ -1,6 +1,6 @@
-require 'json/api'
+require 'jsonapi'
 
-describe JSON::API, '#parse' do
+describe JSONAPI, '#parse' do
   before(:all) do
     @payload = {
       'data' => [
@@ -40,7 +40,7 @@ describe JSON::API, '#parse' do
   end
 
   it 'works' do
-    document = JSON::API.parse(@payload)
+    document = JSONAPI.parse(@payload)
 
     expect(document.data.first.links.keys).to eq ['self']
     expect(document.data.first.links.defined?(:self)).to be_truthy
